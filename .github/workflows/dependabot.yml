@@ -98,7 +98,8 @@ jobs:
         echo "release_url=${{ github.event.repository.html_url }}/releases/new?tag=$next_tag&title=$title_html" >> $GITHUB_OUTPUT
         
         # Replace "<tag>" with the next tag in production_pipeline
-        production_pipeline=$(echo ${{ inputs.production_pipeline }} | sed "s/<tag>/$next_tag/g")
+        url="${{ inputs.production_pipeline }}"
+        production_pipeline=$(echo $url | sed 's/<tag>/$next_tag/g')
         echo "production_pipeline=$production_pipeline" >> $GITHUB_OUTPUT
 
     - name: Print variables
