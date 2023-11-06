@@ -99,7 +99,7 @@ jobs:
         
         # Replace "<tag>" with the next tag in production_pipeline
         url="${{ inputs.production_pipeline }}"
-        production_pipeline=$(echo $url | sed 's/<tag>/$next_tag/g')
+        production_pipeline=$(echo $url | sed "s/<tag>/$next_tag/g")
         echo "production_pipeline=$production_pipeline" >> $GITHUB_OUTPUT
 
     - name: Print variables
