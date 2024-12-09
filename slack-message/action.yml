@@ -120,9 +120,9 @@ runs:
         slack-bot-user-oauth-access-token: ${{ inputs.slack-token }}
         slack-channel: ${{ inputs.slack-channel }}
         slack-optional-thread_ts: ${{ steps.send-result.outputs.thread_ts }}
-        slack-optional-username: 7. Controleer Productie
-        slack-text: "URL: ${{ inputs.production_urls }}"
-        slack-optional-icon_emoji: ":rocket:"
+        slack-optional-username: 7. Controleer Productie Deployment Trivy Output
+        slack-text: "In de Pipeline Summary, Contoleer onder 'Extentions' in het Trivy rapport op Vulnerable packages met een fixed version"
+        slack-optional-icon_emoji: ":jenkins_ci:"
 
     - name: Thread message 8
       uses: archive/github-actions-slack@master
@@ -131,6 +131,17 @@ runs:
         slack-bot-user-oauth-access-token: ${{ inputs.slack-token }}
         slack-channel: ${{ inputs.slack-channel }}
         slack-optional-thread_ts: ${{ steps.send-result.outputs.thread_ts }}
-        slack-optional-username: 8. Timetell code
+        slack-optional-username: 8. Controleer Productie
+        slack-text: "URL: ${{ inputs.production_urls }}"
+        slack-optional-icon_emoji: ":rocket:"
+
+    - name: Thread message 9
+      uses: archive/github-actions-slack@master
+      with:
+        slack-function: send-message
+        slack-bot-user-oauth-access-token: ${{ inputs.slack-token }}
+        slack-channel: ${{ inputs.slack-channel }}
+        slack-optional-thread_ts: ${{ steps.send-result.outputs.thread_ts }}
+        slack-optional-username: 9. Timetell code
         slack-text: "Code: ${{ inputs.timetell_code }}"
         slack-optional-icon_emoji: ":clock1:"
