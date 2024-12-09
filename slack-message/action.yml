@@ -88,7 +88,7 @@ runs:
         slack-channel: ${{ inputs.slack-channel }}
         slack-optional-thread_ts: ${{ steps.send-result.outputs.thread_ts }}
         slack-optional-username: 4. Controleer Trivy Output
-        slack-text: "In de Pipeline summary, Controleer onder de tab 'Extentions' het Trivy rapport op vulnerable packages met een fixed version."
+        slack-text: "In het Pipeline overzicht, controleer onder de tab 'Extentions' het Trivy rapport op vulnerable packages met een fixed version."
         slack-optional-icon_emoji: ":mag:"
         
     - name: Thread message 5
